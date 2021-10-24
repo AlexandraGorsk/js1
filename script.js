@@ -32,21 +32,19 @@
 // alert(primes);
 //3
 let tab = function () {
-let tabs = document.querySelectorAll('.tabs-nav_item');  
-let content = document.querySelectorAll('.tab'); 
+	let tabs = document.querySelectorAll('.tabs-nav_item');
+	let content = document.querySelectorAll('.tab');
 
-tabs.forEach(item => item.addEventListener('click', tabClick));
+	tabs.forEach((item) => item.addEventListener('click', tabClick));
 
-function tabClick(event) {
-  let tabId = event.target.dataset.id;
-
-  tabs.forEach((item, index) => {
-    item.classList.remove('is-active');
-    content[index].classList.remove('is-active');
-  })
-
-  tabs[tabId - 1].classList.add('is-active');
-  content[tabId - 1].classList.add('is-active');
-}
-}
+	function tabClick(event) {
+		let tabId = event.target.getAttribute('id');
+		tabs.forEach((item, index) => {
+			item.classList.remove('is-active');
+			content[index].classList.remove('is-active');
+		});
+		tabs[tabId - 1].classList.add('is-active');
+		content[tabId - 1].classList.add('is-active');
+	}
+};
 tab();
